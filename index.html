@@ -2,368 +2,1041 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Estilo Campo Steakhouse — Düsseldorf</title>
-<meta name="description" content="Estilo Campo Steakhouse in Düsseldorf — Frische Zutaten, kreative Küche und ein Ambiente das jeden Besuch besonders macht. In Düsseldorf.">
-<meta property="og:title" content="Estilo Campo Steakhouse | Düsseldorf">
-<meta property="og:image" content="https://images.unsplash.com/photo-1552566626-52f8b828add9?w=800&h=1000&fit=crop&q=80">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='14' fill='%231A1510'/><circle cx='16' cy='16' r='5' fill='%23C47D3F'/></svg>">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estilo Campo — Steakhouse Düsseldorf</title>
+<meta name="description" content="Argentinisches Premium-Steakhouse in der Düsseldorfer Altstadt. Direkt von der Partnerfarm. Ribeye, Empanadas, Malbec.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-/*
-  SYSTEMS v4 — RESTAURANT
-  Warm Dark · Organic · Serif Elegance
-  Ref: awwwards.com/websites/hotel-restaurant
-  Palette: Dark Espresso + Warm Copper + Olive
-*/
+  :root {
+    --red: #8B1A1A;
+    --red-light: #B22222;
+    --gold: #C9A84C;
+    --gold-light: #E0C070;
+    --black: #080808;
+    --dark: #0F0F0F;
+    --card: #141414;
+    --border: #1E1E1E;
+    --text: #EDE8E0;
+    --text-muted: #6E6860;
+    --text-dim: #3A3530;
+  }
 
-:root {
-  --primary: #1A1510;
-  --accent: #C47D3F;
-  --accent-hover: #A8652B;
-  --olive: #6B7B4C;
-  --white: #FAF8F5;
-  --bg: #1A1510;
-  --bg-alt: #211C15;
-  --bg-card: #262016;
-  --border: #332A1F;
-  --text: #B5A898;
-  --text-muted: #7A6E60;
-  --text-faint: #4D4338;
-  --serif: 'Cormorant Garamond', Georgia, serif;
-  --sans: 'DM Sans', -apple-system, sans-serif;
-  --radius: 8px;
-  --radius-btn: 6px;
-  --shadow-lg: 0 4px 8px rgba(0,0,0,0.3), 0 12px 24px rgba(0,0,0,0.5);
-  --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-}
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
 
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--white);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-a{text-decoration:none;color:inherit}
-img{display:block;max-width:100%}
-button{border:none;background:none;cursor:pointer;font:inherit}
-::selection{background:rgba(196,125,63,0.25)}
+  body {
+    background: var(--black);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
 
-.container{max-width:1400px;margin:0 auto;padding-inline:clamp(20px,4vw,52px)}
-section{padding-block:clamp(80px,10vw,200px)}
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 56px;
+    transition: background 0.4s, border-color 0.4s;
+  }
 
-/* Typography — Serif display + Sans body */
-.t-hero{font-family:var(--serif);font-size:clamp(40px,3rem+5vw,100px);font-weight:300;line-height:1.0;letter-spacing:-0.02em;font-style:italic}
-.t-section{font-family:var(--serif);font-size:clamp(28px,12px+4vw,64px);font-weight:400;line-height:1.1;letter-spacing:-0.02em}
-.t-sub{font-family:var(--serif);font-size:clamp(20px,14px+1.5vw,36px);font-weight:400;line-height:1.2;font-style:italic}
-.t-body-lg{font-family:var(--sans);font-size:clamp(16px,14px+0.5vw,19px);font-weight:400;line-height:1.7;color:var(--text)}
-.t-body{font-family:var(--sans);font-size:16px;font-weight:400;line-height:1.65;color:var(--text)}
-.t-label{font-family:var(--sans);font-size:13px;font-weight:600;line-height:1.4;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent)}
+  nav.scrolled {
+    background: rgba(8,8,8,0.97);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+  }
 
-/* Nav */
-.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 0;transition:all .3s ease}
-.nav.scrolled{background:rgba(26,21,16,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
-.nav-inner{display:flex;justify-content:space-between;align-items:center}
-.nav-brand{font-family:var(--serif);font-size:20px;font-weight:500;font-style:italic;color:var(--accent)}
-.nav-links{display:flex;gap:32px;align-items:center}
-.nav-links a{font-family:var(--sans);font-size:13px;font-weight:500;color:var(--text);opacity:0.6;transition:opacity .3s;letter-spacing:0.02em}
-.nav-links a:hover{opacity:1;color:var(--white)}
-.nav-cta{padding:10px 24px;background:var(--accent);color:var(--bg);font-size:13px;font-weight:600;border-radius:var(--radius-btn);transition:all .3s;opacity:1!important}
-.nav-cta:hover{background:var(--accent-hover)}
-.nav-toggle{display:none;width:44px;height:44px;border-radius:var(--radius-btn);border:1px solid var(--border);align-items:center;justify-content:center;flex-direction:column;gap:5px}
-.nav-toggle span{width:16px;height:1.5px;background:var(--white);border-radius:1px}
-@media(max-width:768px){.nav-links{display:none}.nav-toggle{display:flex}}
-.mobile-menu{position:fixed;inset:0;background:var(--bg);z-index:200;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:28px;opacity:0;visibility:hidden;transition:all .4s}
-.mobile-menu.open{opacity:1;visibility:visible}
-.mobile-menu a{font-family:var(--serif);font-size:clamp(28px,5vw,42px);font-weight:400;font-style:italic}
-.mob-close{position:absolute;top:20px;right:20px;width:44px;height:44px;border-radius:var(--radius-btn);border:1px solid var(--border);display:flex;align-items:center;justify-content:center}
-.mob-close svg{width:16px;height:16px;stroke:var(--white);stroke-width:2;fill:none}
+  .nav-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-decoration: none;
+  }
 
-/* Hero — Fullscreen image with overlay text at bottom */
-.hero{min-height:100vh;position:relative;display:flex;align-items:flex-end;padding-bottom:clamp(60px,8vw,120px);overflow:hidden}
-.hero-bg{position:absolute;inset:0}
-.hero-bg img{width:100%;height:100%;object-fit:cover;filter:brightness(45%)}
-.hero-content{position:relative;z-index:2;width:100%}
-.hero-label{margin-bottom:20px}
-.hero-title{margin-bottom:24px;color:var(--white);max-width:800px}
-.hero-desc{margin-bottom:40px;max-width:480px}
-.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:56px}
-.hero-stats{display:flex;gap:48px;padding-top:32px;border-top:1px solid rgba(255,255,255,0.1)}
-.hero-stat-val{font-family:var(--serif);font-size:clamp(24px,3vw,36px);font-weight:400;font-style:italic;letter-spacing:-0.02em;line-height:1;color:var(--white)}
-.hero-stat-label{font-family:var(--sans);font-size:13px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-top:8px}
-@media(max-width:768px){.hero-stats{flex-direction:column;gap:24px}}
+  .nav-logo-main {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    color: var(--text);
+    text-transform: uppercase;
+  }
 
-/* Buttons */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 28px;font-family:var(--sans);font-size:13px;font-weight:600;border-radius:var(--radius-btn);transition:all .3s var(--ease-out)}
-.btn svg{width:14px;height:14px;stroke:currentColor;stroke-width:2;fill:none}
-.btn-primary{background:var(--accent);color:var(--bg)}
-.btn-primary:hover{background:var(--accent-hover);transform:translateY(-2px);box-shadow:0 8px 24px rgba(196,125,63,0.2)}
-.btn-outline{background:transparent;color:var(--white);border:1px solid rgba(255,255,255,0.2)}
-.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+  .nav-logo-sub {
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-top: 2px;
+  }
 
-/* Section headers */
-.sec-header{margin-bottom:clamp(48px,6vw,80px)}
-.sec-header-center{text-align:center;max-width:640px;margin-left:auto;margin-right:auto;margin-bottom:clamp(48px,6vw,80px)}
+  .nav-links {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+  }
 
-/* Services — Elegant list instead of grid */
-.svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
-.svc-card{background:var(--bg-card);padding:clamp(32px,4vw,56px);transition:background .4s var(--ease)}
-.svc-card:hover{background:var(--bg-alt)}
-.svc-num{font-family:var(--serif);font-size:clamp(32px,4vw,56px);font-weight:300;font-style:italic;color:var(--border);line-height:1;margin-bottom:24px}
-.svc-card h3{font-family:var(--serif);font-size:20px;font-weight:500;font-style:italic;margin-bottom:12px;color:var(--white)}
-.svc-card p{font-size:14px;color:var(--text-muted);line-height:1.6;margin-bottom:16px}
-.svc-price{font-size:13px;font-weight:600;color:var(--accent)}
-@media(max-width:768px){.svc-grid{grid-template-columns:1fr}}
+  .nav-links a {
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
 
-/* Gallery — Food photography, moody */
-.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(8px,1.2vw,16px)}
-.gallery-item{position:relative;border-radius:var(--radius);overflow:hidden}
-.gallery-item img{width:100%;height:100%;object-fit:cover;filter:brightness(75%) contrast(1.05) saturate(1.1);transition:transform .8s var(--ease),filter .4s}
-.gallery-item:hover img{transform:scale(1.04);filter:brightness(85%) contrast(1.05)}
-.gallery-item:nth-child(1){grid-column:span 2;grid-row:span 2}
-.gallery-item:nth-child(1) img{aspect-ratio:4/3}
-.gallery-item:nth-child(n+2) img{aspect-ratio:1/1}
-.gallery-caption{position:absolute;bottom:12px;left:12px;padding:5px 14px;background:rgba(26,21,16,0.7);backdrop-filter:blur(8px);color:rgba(255,255,255,0.8);font-family:var(--serif);font-size:13px;font-style:italic;border-radius:4px}
-@media(max-width:768px){.gallery{grid-template-columns:1fr 1fr}.gallery-item:nth-child(1){grid-column:span 2}}
+  .nav-links a:hover { color: var(--gold); }
 
-/* About */
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(48px,6vw,96px);align-items:center}
-.about-img{border-radius:var(--radius);overflow:hidden}
-.about-img img{width:100%;aspect-ratio:3/4;object-fit:cover;filter:brightness(80%) saturate(1.1)}
-.about-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border-radius:var(--radius);overflow:hidden;margin-top:40px}
-.about-stat{background:var(--bg-card);padding:24px 20px;text-align:center}
-.about-stat b{display:block;font-family:var(--serif);font-size:20px;font-weight:400;font-style:italic;color:var(--white);margin-bottom:4px}
-.about-stat span{font-size:13px;color:var(--text-muted);letter-spacing:0.04em;text-transform:uppercase}
-@media(max-width:1024px){.about-grid{grid-template-columns:1fr}}
+  .nav-cta {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--black);
+    background: var(--gold);
+    padding: 11px 28px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.3s;
+  }
 
-/* Reviews */
-.review-card{max-width:480px;margin:0 auto;text-align:center;padding:56px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius)}
-.review-stars{display:flex;justify-content:center;gap:4px;margin-bottom:20px}
-.review-stars svg{width:20px;height:20px;fill:var(--accent)}
-.review-score{font-family:var(--serif);font-size:clamp(48px,6vw,72px);font-weight:300;font-style:italic;letter-spacing:-0.03em;line-height:1;color:var(--white)}
-.review-text{font-size:14px;color:var(--text-muted);margin-top:8px}
+  .nav-cta:hover { background: var(--gold-light); }
 
-/* Contact */
-.contact-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:clamp(24px,3vw,48px);align-items:start}
-.contact-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:clamp(32px,4vw,56px)}
-.contact-card h3{font-family:var(--serif);font-size:22px;font-weight:500;font-style:italic;margin-bottom:28px;color:var(--white)}
-.contact-btn{display:flex;align-items:center;gap:12px;width:100%;padding:14px 20px;border-radius:var(--radius-btn);font-size:14px;font-weight:600;margin-bottom:12px;transition:all .3s}
-.contact-btn svg{width:16px;height:16px;stroke:currentColor;stroke-width:2;fill:none;flex-shrink:0}
-.contact-btn-primary{background:var(--accent);color:var(--bg)}
-.contact-btn-primary:hover{background:var(--accent-hover)}
-.contact-btn-wa{background:#25D366;color:#fff}
-.contact-btn-wa:hover{background:#1DA851}
-.contact-btn-mail{background:var(--bg-alt);color:var(--white);border:1px solid var(--border)}
-.contact-btn-mail:hover{border-color:var(--accent)}
-.ci-label{font-size:13px;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-faint);margin-bottom:4px;margin-top:20px}
-.ci-label:first-child{margin-top:0}
-.ci-val{font-size:14px;font-weight:500;color:var(--text)}
-.map-wrap{border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);height:100%;min-height:440px}
-.map-wrap iframe{width:100%;height:100%;border:0;filter:invert(0.9) hue-rotate(180deg) brightness(0.8) contrast(1.2)}
-@media(max-width:1024px){.contact-grid{grid-template-columns:1fr}}
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
 
-/* CTA */
-.cta{text-align:center}
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 70% 50%, rgba(139,26,26,0.12) 0%, transparent 55%),
+      radial-gradient(ellipse at 20% 80%, rgba(201,168,76,0.05) 0%, transparent 45%),
+      linear-gradient(135deg, #080808 0%, #0C0A09 100%);
+  }
 
-/* Footer */
-footer{padding:clamp(48px,6vw,96px) 0 32px;border-top:1px solid var(--border)}
-.ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:clamp(24px,3vw,48px);margin-bottom:clamp(48px,6vw,80px)}
-.ft-brand{font-family:var(--serif);font-size:18px;font-weight:500;font-style:italic;margin-bottom:12px;color:var(--accent)}
-.ft-col h4{font-family:var(--sans);font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:16px}
-.ft-col a{display:block;font-size:14px;color:var(--text-faint);line-height:2.2;transition:color .3s}
-.ft-col a:hover{color:var(--accent)}
-.ft-col p{font-size:14px;color:var(--text-faint);line-height:1.7}
-.ft-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid var(--border);font-size:13px;color:var(--text-faint)}
-.ft-social{display:flex;gap:8px}
-.ft-social a{width:32px;height:32px;border-radius:var(--radius-btn);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;transition:all .3s}
-.ft-social a:hover{border-color:var(--accent)}
-.ft-social a svg{width:14px;height:14px;stroke:var(--text-muted);stroke-width:2;fill:none}
-@media(max-width:768px){.ft-grid{grid-template-columns:1fr 1fr}}
+  .hero-texture {
+    position: absolute;
+    inset: 0;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
 
-/* Sticky + Cookie */
-.sticky-cta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:90;padding:12px 16px;background:rgba(26,21,16,0.95);backdrop-filter:blur(12px);border-top:1px solid var(--border);transform:translateY(100%);transition:transform .4s var(--ease-out)}
-.sticky-cta.show{transform:translateY(0)}
-.sticky-cta a{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:14px;background:var(--accent);color:var(--bg);font-size:14px;font-weight:600;border-radius:var(--radius-btn)}
-@media(max-width:768px){.sticky-cta{display:block}}
-.cookie-bar{position:fixed;bottom:0;left:0;right:0;z-index:200;padding:16px 24px;background:var(--bg-card);border-top:1px solid var(--border);color:var(--text);font-size:13px;display:flex;align-items:center;justify-content:space-between;gap:16px;transform:translateY(100%);transition:transform .5s var(--ease-out)}
-.cookie-bar.show{transform:translateY(0)}
-.cookie-btn{padding:8px 20px;background:var(--accent);color:var(--bg);border:none;border-radius:var(--radius-btn);font-size:13px;font-weight:600;cursor:pointer}
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 56px;
+    max-width: 800px;
+  }
 
-/* Reveal */
+  .hero-origin {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 32px;
+  }
 
-@media(prefers-reduced-motion:reduce){}
+  .origin-flag {
+    font-size: 24px;
+    line-height: 1;
+  }
 
-.svc-card:hover,.sv:hover,.area-card:hover{transform:translateY(-6px) rotateX(2deg);transition:transform 0.4s cubic-bezier(0.33,1,0.68,1),box-shadow 0.4s}
+  .origin-text {
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
 
-/* Image reveal mask effect */
-.gallery-item{clip-path:inset(0 0 0 0);transition:clip-path 0.8s cubic-bezier(0.33,1,0.68,1)}
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(72px, 9vw, 140px);
+    font-weight: 300;
+    line-height: 0.85;
+    letter-spacing: -0.03em;
+    color: var(--text);
+    margin-bottom: 12px;
+  }
 
+  .hero h1 .line2 {
+    font-style: italic;
+    color: var(--gold);
+    display: block;
+    padding-left: 60px;
+  }
+
+  .hero-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-style: italic;
+    color: var(--text-muted);
+    margin: 32px 0 48px;
+    max-width: 500px;
+    line-height: 1.5;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .btn-primary {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--black);
+    background: var(--gold);
+    padding: 16px 36px;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.3s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+  }
+
+  .btn-outline {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-decoration: none;
+    border: 1px solid var(--border);
+    padding: 15px 32px;
+    transition: border-color 0.3s, color 0.3s;
+  }
+
+  .btn-outline:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+
+  .hero-right {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 42%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 56px;
+    border-left: 1px solid var(--border);
+  }
+
+  .hero-stat {
+    padding: 32px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hero-stat:first-child { border-top: 1px solid var(--border); }
+
+  .stat-val {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 52px;
+    font-weight: 300;
+    color: var(--gold);
+    line-height: 1;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  /* SECTION BASE */
+  section { padding: 120px 56px; }
+
+  .section-tag {
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .section-tag::before {
+    content: '';
+    width: 28px;
+    height: 1px;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(40px, 5vw, 68px);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+  }
+
+  /* HERKUNFT */
+  .herkunft {
+    background: var(--dark);
+    padding: 120px 56px;
+  }
+
+  .herkunft-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    margin-top: 64px;
+  }
+
+  .herkunft-text h2 { margin-bottom: 28px; }
+
+  .herkunft-text p {
+    font-size: 16px;
+    line-height: 1.85;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .herkunft-visual {
+    aspect-ratio: 4/5;
+    background: linear-gradient(135deg, #181412, #0E0C0B);
+    border: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .herkunft-visual::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 60%, rgba(139,26,26,0.12) 0%, transparent 60%);
+  }
+
+  .ranch-badge {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .ranch-icon {
+    font-size: 64px;
+    display: block;
+    margin-bottom: 20px;
+    filter: grayscale(0.3);
+  }
+
+  .ranch-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-style: italic;
+    color: var(--text-muted);
+  }
+
+  .ranch-sub {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-top: 8px;
+    display: block;
+  }
+
+  /* CUTS */
+  .cuts-section { padding: 120px 56px; }
+
+  .cuts-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 64px;
+  }
+
+  .cuts-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+  }
+
+  .cut-card {
+    background: var(--card);
+    padding: 40px 32px;
+    transition: background 0.4s;
+    cursor: default;
+  }
+
+  .cut-card:hover { background: #181818; }
+
+  .cut-icon {
+    font-size: 32px;
+    margin-bottom: 24px;
+    display: block;
+    filter: grayscale(0.4);
+  }
+
+  .cut-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+
+  .cut-origin {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  .cut-desc {
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--text-muted);
+  }
+
+  /* MENU FULL */
+  .menu-section {
+    background: var(--dark);
+    padding: 120px 56px;
+  }
+
+  .menu-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    margin-top: 64px;
+  }
+
+  .menu-category h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 300;
+    color: var(--text);
+    margin-bottom: 32px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border);
+    gap: 24px;
+  }
+
+  .menu-item-info h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .menu-item-info p {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  .menu-item-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    color: var(--gold);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* WINE */
+  .wine-section { padding: 120px 56px; }
+
+  .wine-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    margin-top: 64px;
+  }
+
+  .wine-visual {
+    aspect-ratio: 3/4;
+    background: linear-gradient(160deg, #120E0A, #0A0806);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .wine-visual::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 30%, rgba(139,26,26,0.15) 0%, transparent 60%);
+  }
+
+  .wine-icon {
+    font-size: 80px;
+    position: relative;
+    z-index: 2;
+    filter: grayscale(0.2);
+  }
+
+  .wine-text h2 { margin-bottom: 28px; }
+
+  .wine-text p {
+    font-size: 16px;
+    line-height: 1.85;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .wine-list {
+    list-style: none;
+    margin-top: 32px;
+  }
+
+  .wine-list li {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+
+  .wine-list li::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* HOURS */
+  .hours-section {
+    background: var(--dark);
+    padding: 120px 56px;
+  }
+
+  .hours-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    margin-top: 64px;
+    align-items: start;
+  }
+
+  .hours-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hours-day {
+    font-size: 14px;
+    color: var(--text);
+    letter-spacing: 0.03em;
+  }
+
+  .hours-time {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    color: var(--gold);
+  }
+
+  .hours-note {
+    padding: 40px;
+    border: 1px solid var(--border);
+  }
+
+  .hours-note h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 300;
+    margin-bottom: 20px;
+  }
+
+  .hours-note p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .contact-line {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .contact-label {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    min-width: 72px;
+  }
+
+  .contact-val {
+    font-size: 14px;
+    color: var(--text);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .contact-val:hover { color: var(--gold); }
+
+  /* LOCATION */
+  .location-section { padding: 120px 56px; }
+
+  .location-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    margin-top: 64px;
+  }
+
+  .location-text h2 { margin-bottom: 24px; }
+
+  .location-text p {
+    font-size: 16px;
+    line-height: 1.85;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+  }
+
+  .map-box {
+    aspect-ratio: 1;
+    background: var(--card);
+    border: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .map-box::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, rgba(201,168,76,0.05), transparent 70%);
+  }
+
+  .map-pin {
+    width: 44px;
+    height: 44px;
+    border: 2px solid var(--gold);
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    position: relative;
+  }
+
+  .map-pin::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 14px;
+    height: 14px;
+    background: var(--gold);
+    border-radius: 50%;
+  }
+
+  .map-addr {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    color: var(--text);
+    text-align: center;
+    line-height: 1.4;
+    position: relative;
+    z-index: 2;
+  }
+
+  .map-district {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-align: center;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 60px 56px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    color: var(--text);
+    text-transform: uppercase;
+  }
+
+  .footer-logo span {
+    display: block;
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    margin-top: 2px;
+  }
+
+  .footer-copy {
+    font-size: 12px;
+    color: var(--text-dim);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+  }
+
+  .footer-links a {
+    font-size: 11px;
+    color: var(--text-muted);
+    text-decoration: none;
+    letter-spacing: 0.08em;
+    transition: color 0.3s;
+  }
+
+  .footer-links a:hover { color: var(--gold); }
+
+  .divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    opacity: 0.2;
+    margin: 0 56px;
+  }
+
+  @media (max-width: 900px) {
+    nav { padding: 20px 24px; }
+    .nav-links { display: none; }
+    .hero-right { display: none; }
+    section, .herkunft, .cuts-section, .menu-section, .wine-section, .hours-section, .location-section { padding: 80px 24px; }
+    .herkunft-grid, .menu-cols, .wine-content, .hours-layout, .location-grid { grid-template-columns: 1fr; gap: 40px; }
+    .cuts-grid { grid-template-columns: 1fr 1fr; }
+    footer { flex-direction: column; gap: 24px; text-align: center; }
+  }
 </style>
-
-<!-- GSAP CDN -->
-
-
-    <style>
-    /* SYSTEMS v4 — Unique Color Override */
-    :root {
-      --accent: #DC2626 !important;
-      --accent-hover: #B91C1C !important;
-    }
-    /* Fix SVG icon sizing globally */
-    .cb svg, .contact-btn svg, .btn svg { width: 20px !important; height: 20px !important; flex-shrink: 0; }
-    .nav-cta svg { width: 16px !important; height: 16px !important; }
-    .ft-social svg { width: 14px !important; height: 14px !important; }
-    .review-stars svg { width: 20px !important; height: 20px !important; }
-    </style>
-    </head>
+</head>
 <body>
 
-
-<nav class="nav" id="nav">
-  <div class="container nav-inner">
-    <a href="#" class="nav-brand">Estilo Campo Steakhouse</a>
-    <div class="nav-links">
-      <a href="#speisekarte">Speisekarte</a>
-      <a href="#galerie">Galerie</a>
-      <a href="#restaurant">Restaurant</a>
-      <a href="#kontakt">Kontakt</a>
-      <a href="tel:021170069798" class="nav-cta">Tisch reservieren</a>
-    </div>
-    <button class="nav-toggle" onclick="document.getElementById('mob').classList.add('open')"><span></span><span></span><span></span></button>
-  </div>
+<nav id="nav">
+  <a href="#" class="nav-logo">
+    <span class="nav-logo-main">Estilo Campo</span>
+    <span class="nav-logo-sub">Buena Cocina Argentina</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#herkunft">Herkunft</a></li>
+    <li><a href="#cuts">Die Cuts</a></li>
+    <li><a href="#speise">Speisekarte</a></li>
+    <li><a href="#zeiten">Öffnungszeiten</a></li>
+  </ul>
+  <a href="tel:+4921170069798" class="nav-cta">Reservieren</a>
 </nav>
-<div class="mobile-menu" id="mob">
-  <button class="mob-close" onclick="document.getElementById('mob').classList.remove('open')"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
-  <a href="#speisekarte" onclick="document.getElementById('mob').classList.remove('open')">Speisekarte</a>
-  <a href="#galerie" onclick="document.getElementById('mob').classList.remove('open')">Galerie</a>
-  <a href="#restaurant" onclick="document.getElementById('mob').classList.remove('open')">Restaurant</a>
-  <a href="#kontakt" onclick="document.getElementById('mob').classList.remove('open')">Kontakt</a>
-  <a href="tel:021170069798" class="btn btn-primary" style="margin-top:16px">Tisch reservieren</a>
-</div>
 
+<!-- HERO -->
 <section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-texture"></div>
 
-  <div style="position:absolute;inset:50px;border:1px solid var(--accent,#C47D3F);border-radius:50%;animation:spin3d 25s linear infinite;opacity:.5"></div>
-  <div style="position:absolute;top:50%;left:50%;width:4px;height:120px;background:linear-gradient(var(--accent,#C47D3F),transparent);transform:translate(-50%,-50%) rotate(30deg);animation:float3d 5s ease-in-out infinite;animation-delay:-2s;border-radius:2px;opacity:.6"></div>
-  <div style="position:absolute;top:50%;left:50%;width:4px;height:120px;background:linear-gradient(var(--accent,#C47D3F),transparent);transform:translate(-50%,-50%) rotate(-30deg);animation:float3d 5s ease-in-out infinite;animation-delay:-4s;border-radius:2px;opacity:.6"></div>
-</div>
-
-  <div class="hero-bg"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920&h=1200&fit=crop&q=80" alt="Estilo Campo Steakhouse" loading="lazy"></div>
-  <div class="container hero-content">
-    <p class="t-label hero-label">Düsseldorf</p>
-    <h1 class="t-hero hero-title">Genuss, der<br>in Erinnerung bleibt</h1>
-    <p class="t-body-lg hero-desc">Frische Zutaten, kreative Küche und ein Ambiente das jeden Besuch besonders macht. In Düsseldorf.</p>
+  <div class="hero-content">
+    <div class="hero-origin">
+      <span class="origin-flag">🇦🇷</span>
+      <span class="origin-text">Buena Cocina Argentina · Düsseldorf Altstadt</span>
+    </div>
+    <h1>
+      Estilo
+      <span class="line2">Campo</span>
+    </h1>
+    <p class="hero-tagline">Das Feuer brennt. Das Fleisch kommt direkt von unserer Partnerfarm in Argentinien.</p>
     <div class="hero-actions">
-      <a href="tel:021170069798" class="btn btn-primary"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>Tisch reservieren</a>
-      <a href="#speisekarte" class="btn btn-outline">Speisekarte</a>
+      <a href="tel:+4921170069798" class="btn-primary">Tisch reservieren</a>
+      <a href="#cuts" class="btn-outline">Die Cuts</a>
     </div>
-    <div class="hero-stats"><div class="hero-meta-item"><div class="hero-meta-val">4.8</div><div class="hero-meta-label">Google Rating</div></div><div class="hero-meta-item"><div class="hero-meta-val">992+</div><div class="hero-meta-label">Bewertungen</div></div><div class="hero-meta-item"><div class="hero-meta-val">Mo–Fr</div><div class="hero-meta-label">Geöffnet</div></div></div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-stat">
+      <span class="stat-val">100%</span>
+      <span class="stat-label">Argentinisches Rindfleisch</span>
+    </div>
+    <div class="hero-stat">
+      <span class="stat-val">7</span>
+      <span class="stat-label">Tage die Woche geöffnet</span>
+    </div>
+    <div class="hero-stat">
+      <span class="stat-val">1</span>
+      <span class="stat-label">Partnerfarm · Direktimport</span>
+    </div>
   </div>
 </section>
 
-<section id="speisekarte">
-  <div class="container">
-    <div class="sec-header">
-      <span class="t-label">Speisekarte</span>
-      <h2 class="t-section">Unsere<br><em style="font-style:italic;font-weight:300">Spezialitaeten</em></h2>
+<!-- HERKUNFT -->
+<section id="herkunft" class="herkunft">
+  <div class="herkunft-grid">
+    <div class="herkunft-text">
+      <div class="section-tag">Unsere Philosophie</div>
+      <h2>Vom Feld<br>auf den Teller</h2>
+      <p>Unser Rindfleisch kommt direkt von unserer Partnerfarm in Argentinien — natürlich aufgezogen, nachhaltig produziert. Keine Kompromisse bei der Herkunft, keine Kompromisse beim Geschmack.</p>
+      <p>Im Estilo Campo trifft argentinische Grillkultur auf moderne Eleganz. Das Ergebnis: ein Steakhouse, das Tradition und Raffinesse vereint — mitten in der Düsseldorfer Altstadt.</p>
     </div>
-    <div class="svc-grid"><div class="svc-card"><div class="svc-num">01</div><h3>À la carte</h3><p>Frische, saisonale Gerichte aus besten Zutaten.</p><div class="svc-price">Speisekarte</div></div><div class="svc-card"><div class="svc-num">02</div><h3>Business Lunch</h3><p>Schnell, lecker und perfekt für die Mittagspause.</p><div class="svc-price">ab 12€</div></div><div class="svc-card"><div class="svc-num">03</div><h3>Private Events</h3><p>Feiern Sie Ihren besonderen Anlass bei uns.</p><div class="svc-price">auf Anfrage</div></div><div class="svc-card"><div class="svc-num">04</div><h3>Catering</h3><p>Kulinarische Highlights für Ihr Event.</p><div class="svc-price">auf Anfrage</div></div></div>
-  </div>
-</section>
-
-<section id="galerie" style="background:var(--bg-alt)">
-  <div class="container">
-    <div class="sec-header-center">
-      <span class="t-label">Einblicke</span>
-      <h2 class="t-section">Kulinarische <em style="font-style:italic;font-weight:300">Momente</em></h2>
-    </div>
-    <div class="gallery"><div class="gallery-item"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=600&h=400&fit=crop&q=80" loading="lazy" alt="Kueche"><span class="gallery-caption">Kueche</span></div><div class="gallery-item"><img src="https://images.unsplash.com/photo-1537047902294-62a40c20a6ae?w=600&h=400&fit=crop&q=80" loading="lazy" alt="Ambiente"><span class="gallery-caption">Ambiente</span></div><div class="gallery-item"><img src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=600&h=400&fit=crop&q=80" loading="lazy" alt="Genuss"><span class="gallery-caption">Genuss</span></div></div>
-  </div>
-</section>
-
-<section id="restaurant">
-  <div class="container">
-    <div class="about-grid">
-      <div class="about-img"><img src="https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?w=800&h=600&fit=crop&q=80" alt="Estilo Campo Steakhouse" loading="lazy"></div>
-      <div>
-        <span class="t-label" style="display:block;margin-bottom:16px">Ueber uns</span>
-        <h2 class="t-sub" style="margin-bottom:24px;color:var(--white)">Estilo Campo Steakhouse</h2>
-        <div class="t-body"><p>Estilo Campo Steakhouse steht für erstklassige Qualität in Düsseldorf. Wir verbinden Professionalität mit persönlicher Betreuung.</p><p>Unser erfahrenes Team freut sich darauf, Sie willkommen zu heißen.</p></div>
-        <div class="about-stats"><div class="about-stat"><b>4.8</b><span>Google Rating</span></div><div class="about-stat"><b>100%</b><span>Engagement</span></div><div class="about-stat"><b>Düsseldorf</b><span>Standort</span></div></div>
+    <div class="herkunft-visual">
+      <div class="ranch-badge">
+        <span class="ranch-icon">🐄</span>
+        <div class="ranch-text">Partnerfarm Argentina</div>
+        <span class="ranch-sub">Natürlich aufgezogen · Nachhaltig</span>
       </div>
     </div>
   </div>
 </section>
 
-<section style="background:var(--bg-alt)">
-  <div class="container"><div class="sec-header-center"><span class="t-label">Bewertungen</span><h2 class="t-section">Was unsere Kunden sagen</h2></div><div class="review-card"><div class="review-stars"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><div class="review-score">4.8</div><div class="review-text">auf Google · 992 Bewertungen</div></div></div>
+<!-- CUTS -->
+<section id="cuts" class="cuts-section">
+  <div class="cuts-header">
+    <div>
+      <div class="section-tag">Premium Cuts</div>
+      <h2>Das Beste vom Rind</h2>
+    </div>
+  </div>
+
+  <div class="cuts-grid">
+    <div class="cut-card">
+      <span class="cut-icon">🥩</span>
+      <div class="cut-name">Ribeye</div>
+      <div class="cut-origin">Argentinien · Prime</div>
+      <p class="cut-desc">Intensiv marmoriert, butterweich. Der König der Steaks — mit hohem Fettanteil für maximalen Geschmack.</p>
+    </div>
+    <div class="cut-card">
+      <span class="cut-icon">🥩</span>
+      <div class="cut-name">Entrecôte</div>
+      <div class="cut-origin">Argentinien · Dry Aged</div>
+      <p class="cut-desc">Klassisch und ausgewogen. Zartes Fleisch mit feiner Marmorierung — für Kenner, die Eleganz schätzen.</p>
+    </div>
+    <div class="cut-card">
+      <span class="cut-icon">🥩</span>
+      <div class="cut-name">T-Bone</div>
+      <div class="cut-origin">Argentinien · Heritage</div>
+      <p class="cut-desc">Zwei Cuts in einem — Filet und Roastbeef. Für alle, die sich nicht entscheiden wollen.</p>
+    </div>
+    <div class="cut-card">
+      <span class="cut-icon">🥩</span>
+      <div class="cut-name">Picanha</div>
+      <div class="cut-origin">Argentinien · Signature</div>
+      <p class="cut-desc">Südamerikanischer Klassiker mit aromatischer Fettkappe — langsam gegrillt über offener Glut.</p>
+    </div>
+  </div>
 </section>
 
-<section id="kontakt">
-  <div class="container">
-    <div class="sec-header-center">
-      <span class="t-label">Reservierung</span>
-      <h2 class="t-section">Wir freuen uns<br><em style="font-style:italic;font-weight:300">auf Sie</em></h2>
-    </div>
-    <div class="contact-grid">
-      <div class="contact-card">
-        <h3>Reservieren Sie Ihren Tisch</h3>
-        <a href="tel:021170069798" class="contact-btn contact-btn-primary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> Anrufen: 0211 70069798</a><a href="https://wa.me/4921170069798" class="contact-btn contact-btn-wa" target="_blank"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg> WhatsApp</a>
-        <div style="margin-top:28px"><div class="ci-label">Adresse</div><div class="ci-val">Düsseldorf</div><div class="ci-label">Öffnungszeiten</div><div class="ci-val">Mo-So: 12:00-23:00</div></div>
+<div class="divider"></div>
+
+<!-- MENU -->
+<section id="speise" class="menu-section">
+  <div class="section-tag">Speisekarte</div>
+  <h2>Auswahl unserer<br>Küche</h2>
+
+  <div class="menu-cols">
+    <div class="menu-category">
+      <h3>Vorspeisen</h3>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <h4>Empanadas</h4>
+          <p>Klassische argentinische Teigtaschen, gefüllt mit Rindfleisch, Zwiebeln und Gewürzen</p>
+        </div>
+        <span class="menu-item-price">12 €</span>
       </div>
-      <div class="map-wrap"><iframe src="https://www.google.com/maps?q=Estilo+Campo+Steakhouse+Düsseldorf&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Standort"></iframe></div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <h4>Provoleta</h4>
+          <p>Gegrillter Provolone-Käse mit frischen Kräutern und Chimichurri</p>
+        </div>
+        <span class="menu-item-price">14 €</span>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <h4>Rindfleisch-Carpaccio</h4>
+          <p>Hauchdünn aufgeschnitten, Parmesan, Rucola, Zitronendressing</p>
+        </div>
+        <span class="menu-item-price">18 €</span>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <h4>Chorizo Parrilla</h4>
+          <p>Argentinische Grillwurst vom offenen Feuer, hausgemachtes Chimichurri</p>
+        </div>
+        <span class="menu-item-price">16 €</span>
+      </div>
+    </div>
+
+    <div class="menu-category">
+      <h3>Hauptgerichte</h3>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <h4>Ribeye 300g</h4>
+          <p>Argentinisches Prime-Ribeye, gegrillt nach Wunsch, Beilagen nach Wahl</p>
+        </div>
+        <span class="menu-item-price">48 €</span>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <h4>T-Bone 500g</h4>
+          <p>Imposantes T-Bone, zwei Stunden temperiert, über Holzglut gegrillt</p>
+        </div>
+        <span class="menu-item-price">58 €</span>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <h4>Lammkeule</h4>
+          <p>Zart geschmorte Lammkeule, Rosmarinjus, gebratene Kartoffeln</p>
+        </div>
+        <span class="menu-item-price">38 €</span>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <h4>Picanha vom Rost</h4>
+          <p>Traditionelle Picanha, Chimichurri, Farofa, schwarze Bohnen</p>
+        </div>
+        <span class="menu-item-price">44 €</span>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="cta" style="background:var(--bg-alt)">
-  <div class="container" style="text-align:center">
-    <h2 class="t-section" style="color:var(--white);margin-bottom:16px">Ihr Tisch<br><em style="font-style:italic;font-weight:300;color:var(--accent)">wartet</em></h2>
-    <p class="t-body-lg" style="color:var(--text-muted);max-width:480px;margin:0 auto 40px">Reservieren Sie jetzt und erleben Sie kulinarische Momente.</p>
-    <a href="tel:021170069798" class="btn btn-primary">Jetzt reservieren: 0211 70069798</a>
+<!-- WEIN -->
+<section class="wine-section">
+  <div class="wine-content">
+    <div class="wine-visual">
+      <span class="wine-icon">🍷</span>
+    </div>
+    <div class="wine-text">
+      <div class="section-tag">Weinauswahl</div>
+      <h2>Malbec zum<br>Meisterwerk</h2>
+      <p>Argentinien ist nicht nur für sein Fleisch berühmt — der Malbec aus Mendoza gilt weltweit als einer der besten Rotweine. Unsere kuratierte Weinkarte ergänzt jeden Cut perfekt.</p>
+      <ul class="wine-list">
+        <li>Malbec Reserva · Mendoza, Argentinien</li>
+        <li>Cabernet Sauvignon · Napa Valley, USA</li>
+        <li>Malbec Gran Reserva · Uco Valley</li>
+        <li>Torrontés · Salta, Argentinien (Weißwein)</li>
+        <li>Internationale Auswahl aus 8 Ländern</li>
+      </ul>
+    </div>
   </div>
 </section>
+
+<!-- HOURS -->
+<section id="zeiten" class="hours-section">
+  <div class="section-tag">Zeiten</div>
+  <h2>Täglich für<br>Sie geöffnet</h2>
+
+  <div class="hours-layout">
+    <div>
+      <div class="hours-row">
+        <span class="hours-day">Montag — Sonntag</span>
+        <span class="hours-time">12:00 — 23:00</span>
+      </div>
+      <div class="hours-row">
+        <span class="hours-day">Küche</span>
+        <span class="hours-time">bis 22:30 Uhr</span>
+      </div>
+    </div>
+
+    <div class="hours-note">
+      <h3>Reservierung</h3>
+      <p>Das Estilo Campo ist täglich geöffnet. Wir empfehlen eine Reservierung, besonders Freitag und Samstag. Walk-ins willkommen, solange Plätze verfügbar.</p>
+      <div class="contact-line">
+        <span class="contact-label">Telefon</span>
+        <a href="tel:+4921170069798" class="contact-val">+49 211 70069798</a>
+      </div>
+      <div class="contact-line">
+        <span class="contact-label">Adresse</span>
+        <span class="contact-val">Berger Str. 2, 40213 Düsseldorf</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section id="lage" class="location-section">
+  <div class="location-grid">
+    <div class="location-text">
+      <div class="section-tag">Standort</div>
+      <h2>Mitten in der<br>Altstadt</h2>
+      <p>Das Estilo Campo liegt in bester Lage in der Düsseldorfer Altstadt — Bergerstraße 2, direkt im Herzen des Geschehens. Zu Fuß vom Rheinufer, mit bester Verkehrsanbindung.</p>
+      <a href="https://maps.google.com/?q=Berger+Str.+2,+40213+Düsseldorf" target="_blank" rel="noopener" class="btn-primary">Route planen</a>
+    </div>
+    <div class="map-box">
+      <div class="map-pin"></div>
+      <div class="map-addr">Berger Str. 2<br>40213 Düsseldorf</div>
+      <div class="map-district">Altstadt · Düsseldorf</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
 
 <footer>
-  <div class="container">
-    <div class="ft-grid">
-      <div class="ft-col"><div class="ft-brand">Estilo Campo Steakhouse</div><p>Estilo Campo Steakhouse — Ihr Partner für Qualität in Düsseldorf.</p></div>
-      <div class="ft-col"><h4>Kueche</h4><a href="#speisekarte">Mittagstisch</a><a href="#speisekarte">A la Carte</a><a href="#speisekarte">Catering</a><a href="#speisekarte">Events</a></div>
-      <div class="ft-col"><h4>Kontakt</h4><a href="tel:021170069798">0211 70069798</a><a>Düsseldorf</a></div>
-      <div class="ft-col"><h4>Rechtliches</h4><a href="#">Impressum</a><a href="#">Datenschutz</a></div>
-    </div>
-    <div class="ft-bottom"><span>&copy; 2026 Estilo Campo Steakhouse</span><div class="ft-social"><a href="https://www.google.com/maps/search/Estilo+Campo+Steakhouse+Düsseldorf" target="_blank" title="Maps"><svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a></div></div>
+  <div class="footer-logo">
+    Estilo Campo
+    <span>Buena Cocina Argentina</span>
   </div>
+  <span class="footer-copy">© 2026 Estilo Campo Steakhouse · Düsseldorf</span>
+  <ul class="footer-links">
+    <li><a href="#">Impressum</a></li>
+    <li><a href="#">Datenschutz</a></li>
+    <li><a href="tel:+4921170069798">Reservierung</a></li>
+  </ul>
 </footer>
 
-<div class="sticky-cta" id="stickyCta"><a href="tel:021170069798">Jetzt Tisch reservieren</a></div>
-<div class="cookie-bar" id="cookieBar"><span>Diese Website nutzt Google Maps und Fonts.</span><button class="cookie-btn" onclick="document.getElementById('cookieBar').classList.remove('show');localStorage.setItem('cookies-ok','1')">OK</button></div>
-
 <script>
-if(!localStorage.getItem('cookies-ok')){setTimeout(()=>document.getElementById('cookieBar').classList.add('show'),1500)}
-const stickyObs=new IntersectionObserver(([e])=>{document.getElementById('stickyCta').classList.toggle('show',!e.isIntersecting)},{threshold:0});
-stickyObs.observe(document.querySelector('.hero'));
-addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>80),{passive:true});
-const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}})},{threshold:0.15,rootMargin:'0px 0px -40px 0px'});
-document.querySelectorAll(')}));
-</script>
-
-<!-- Scroll Reveal -->
-<script>
-(function(){
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)} });
-  }, {threshold:0.1, rootMargin:'0px 0px -50px 0px'});
-  document.querySelectorAll('section, .svc-card, .gallery-item, .review-card, .about-grid, .contact-card').forEach(el => {
-    el.classList.add('reveal');
-    obs.observe(el);
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
   });
-  document.querySelectorAll('.svc-grid, .gallery, .about-stats, .ft-grid').forEach(el => {
-    el.classList.add('reveal-stagger');
-    obs.observe(el);
-  });
-})();
 </script>
-
-<!-- GSAP ScrollTrigger -->
 
 </body>
 </html>
